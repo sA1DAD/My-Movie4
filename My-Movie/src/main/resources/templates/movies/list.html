@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Movies</title>
 
-
+    <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -178,9 +178,17 @@
 
 <h2>Movies</h2>
 
-<a href="/movies/new">Add Movie</a>
+<a href="new.html">Add Movie</a>
 
 <form method="get" action="/movies">
+    <a th:href="@{/movies(
+        sortBy='title',
+        direction=${sortBy == 'title' and direction == 'asc' ? 'desc' : 'asc'}
+    )}"> sort
+        <span th:if="${sortBy == 'title'}"
+              th:text="${direction == 'asc' ? '▲' : '▼'}"  ></span>
+    </a> <br>
+
     Search by title:
     <input type="text" name="title" th:value="${title}" />
 
@@ -225,7 +233,7 @@
 </table>
 
 
-
+<!-- Notification -->
 <div id="deleteNotification">
     Movie successfully deleted!
 </div>

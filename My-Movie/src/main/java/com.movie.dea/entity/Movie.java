@@ -1,4 +1,4 @@
-package com.movie.dea.entity;
+'package com.movie.dea.entity;
 
 import jakarta.persistence.*;
 
